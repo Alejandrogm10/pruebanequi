@@ -5,8 +5,6 @@
 
 import pandas as pd
 import seaborn as sb
-from io import StringIO
-import s3fs
 
 # =============================================================================
 # EDA: Exploratory Data Analysis
@@ -63,7 +61,3 @@ perfiles = perfiles.drop(['cts'], axis=1)
 #Elimina todas las filas que tengan valores nulos
 #posts = pd.read_parquet(r'C:\Users\Alejandro\Prueba\instagram_posts.parquet', engine='pyarrow')
 #print('posts cargado')
-
-s3 = s3fs.S3FileSystem(anon=False)
-with s3.open('s3://insumosprueba/resultado.csv','w') as f:
-    perfiles.to_csv(f)
