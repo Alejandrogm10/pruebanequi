@@ -63,4 +63,4 @@ perfiles = perfiles.drop(['cts'], axis=1)
 #posts = pd.read_parquet(r'C:\Users\Alejandro\Prueba\instagram_posts.parquet', engine='pyarrow')
 #print('posts cargado')
 
-perfiles.to_csv(r's3://insumosprueba/resultado_prueba.csv',sep=',')
+perfiles.to_csv('s3://insumosprueba/resultado_prueba.csv',sep=',')
