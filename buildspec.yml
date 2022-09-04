@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       - echo We are in the build block
-  postbuild:
+  post_build:
     commands:
       - echo We are in the postbuild block
   artifacts:
