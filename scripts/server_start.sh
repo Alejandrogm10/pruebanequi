@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Start web server
-service httpd start
+sudo service codedeploy-agent start
