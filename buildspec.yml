@@ -14,7 +14,7 @@ phases:
       - echo "Nothing to do in the pre_build phase..."
   build:
     commands:
-      - python Perfiles.py
+      - python src/Perfiles.py
   post_build:
     commands:
       - echo "We are in the postbuild block"
