@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Stop server
-sudo service codedeploy-agent stop
+sudo service codedeploy-agent status
