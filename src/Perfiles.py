@@ -6,7 +6,7 @@
 import pandas as pd
 import seaborn as sb
 from io import StringIO
-import boto3
+import s3fs
 
 # =============================================================================
 # EDA: Exploratory Data Analysis
@@ -64,9 +64,6 @@ perfiles = perfiles.drop(['cts'], axis=1)
 #posts = pd.read_parquet(r'C:\Users\Alejandro\Prueba\instagram_posts.parquet', engine='pyarrow')
 #print('posts cargado')
 
-bucket = 'insumosprueba'  # already created on S3
-csv_buffer = StringIO()
-perfiles.to_csv(csv_buffer)
-
-s3_resource = boto3.resource('s3')
-s3_resource.Object(bucket, 'resultado.csv').put(Body=csv_buffer.getvalue())
+s3 = s3fs.S3FileSystem(anon=False)
+with s3.open('s3://insumosprueba/resultado.csv','w') as f:
+    perfiles.to_csv(f)
