@@ -18,6 +18,3 @@ phases:
   post_build:
     commands:
       - echo We are in the postbuild block
-  artifacts:
-    files:
-      - '**/*'
