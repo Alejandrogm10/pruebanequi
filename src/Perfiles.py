@@ -12,7 +12,7 @@ import seaborn as sb
 # =============================================================================
 
 # Cargar archivo con perfiles de instagram formato csv separado por tabulador
-perfiles = pd.read_csv(r'C:\Users\Alejandro\Prueba\instagram_profiles.csv',sep='\t')
+perfiles = pd.read_csv('s3://insumosprueba/instagram_profiles.csv',sep='\t')
 print('perfiles cargado')
 
 # =============================================================================
@@ -63,4 +63,4 @@ perfiles = perfiles.drop(['cts'], axis=1)
 #posts = pd.read_parquet(r'C:\Users\Alejandro\Prueba\instagram_posts.parquet', engine='pyarrow')
 #print('posts cargado')
 
-perfiles.to_csv(r'C:\Users\Alejandro\Prueba\resultado_prueba.csv',sep=',')
+perfiles.to_csv(r's3://insumosprueba/resultado_prueba.csv',sep=',')
