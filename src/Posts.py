@@ -20,7 +20,7 @@ s3_file_key = 'instagram_posts.parquet'
 bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
-perfiles = pd.read_parquet(io.BytesIO(obj['Body'].read()), engine='pyarrow')
+posts = pd.read_parquet(io.BytesIO(obj['Body'].read()), engine='pyarrow')
 print('posts cargado')
 # =============================================================================
 # 1. Información Básica sobre el DataSet'''
