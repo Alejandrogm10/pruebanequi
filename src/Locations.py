@@ -17,7 +17,7 @@ s3_file_key = 'instagram_locations'
 bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
-perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()), sep=',')
+locations = pd.read_csv(io.BytesIO(obj['Body'].read()), sep=',')
 print('locations cargado')
 
 # =============================================================================
