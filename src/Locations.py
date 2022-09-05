@@ -42,15 +42,8 @@ print('El DataSet tiene {} registros duplicados'.format(locations.duplicated().s
 # =============================================================================
 print(locations.isnull().sum())
 
-
 # =============================================================================
-# 4. Valores Únicos
-# =============================================================================
-print(locations['city'].unique())
-print(sb.countplot(locations['city']))
-
-# =============================================================================
-# 5. Eliminar columnas innecesarias en el modelo
+# 4. Eliminar columnas innecesarias en el modelo
 # =============================================================================
 locations = locations.drop(['region'], axis=1)
 
