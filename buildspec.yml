@@ -16,6 +16,7 @@ phases:
     commands:
       - python src/Perfiles.py
       - python src/Posts.py
+      - python src/locations.py
   post_build:
     commands:
       - echo "We are in the postbuild block"
