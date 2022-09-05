@@ -18,7 +18,7 @@ bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
 locations = pd.read_csv(io.BytesIO(obj['Body'].read()), sep=',')
-print('locations cargado')
+print('archivo locations leido')
 
 # =============================================================================
 # 1. Información Básica sobre el DataSet'''
