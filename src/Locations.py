@@ -12,7 +12,6 @@ import boto3
 import io
 from io import StringIO
 
-locations = pd.read_csv(r'C:\Users\Alejandro\Prueba\instagram_locations.csv', sep=',')
 
 s3_file_key = 'instagram_locations'
 bucket = 'insumosprueba'
