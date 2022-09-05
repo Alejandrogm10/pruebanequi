@@ -13,7 +13,7 @@ import io
 from io import StringIO
 
 
-s3_file_key = 'instagram_locations'
+s3_file_key = 'instagram_locations.csv'
 bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
