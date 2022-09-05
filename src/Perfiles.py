@@ -11,7 +11,7 @@ import seaborn as sb
 # =============================================================================
 
 # Cargar archivo con perfiles de instagram formato csv separado por tabulador
-perfiles = pd.read_csv('s3://insumosprueba/instagram_profiles.csv',sep='\t')
+perfiles = pd.read_csv('https://insumosprueba.s3.amazonaws.com/instagram_profiles.csv',sep='\t')
 print('perfiles cargado')
 
 # =============================================================================
