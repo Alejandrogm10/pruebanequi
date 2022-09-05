@@ -7,6 +7,7 @@ import pandas as pd
 import seaborn as sb
 import boto3
 import io
+from io import StringIO
 
 # =============================================================================
 # EDA: Exploratory Data Analysis
@@ -17,7 +18,7 @@ s3_file_key = 'instagram_profiles.csv'
 bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
-perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()),sep='\t')
+perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()),sep=',')
 
 
 print('perfiles cargado')
@@ -47,9 +48,9 @@ print(perfiles.isnull().sum())
 perfiles = perfiles.dropna(axis=0, subset=['n_posts'])
 perfiles = perfiles.dropna(axis=0, subset=['profile_id'])
 #Reemplaza valores nulos por texto definido
-perfiles["description"].fillna("No Description", inplace = True)
+
 perfiles["is_business_account"].fillna("Not Defined", inplace = True)
-perfiles["firstname_lastname"].fillna("No Name", inplace = True)
+
 print(perfiles.isnull().sum())
 # =============================================================================
 # 4. Valores Únicos
@@ -63,9 +64,7 @@ print(sb.countplot(perfiles['is_business_account']))
 perfiles = perfiles.drop(['url'], axis=1)
 perfiles = perfiles.drop(['cts'], axis=1)
 
-#Casteo tipo de datos
-#perfiles['profile_id'] = pd.to_numeric(perfiles['profile_id'], errors='ignore')
-#perfiles['profile_id'] = perfiles['profile_id'].apply(lambda x: x.apply('{0:.0f}'.format))
-#Elimina todas las filas que tengan valores nulos
-#posts = pd.read_parquet(r'C:\Users\Alejandro\Prueba\instagram_posts.parquet', engine='pyarrow')
-#print('posts cargado')
+csv_buffer = StringIO()
+perfiles.to_csv(csv_buffer)
+s3_resource = boto3.resource('s3')
+s3_resource.Object(bucket, 'resultado_instagram_profiles.csv').put(Body=csv_buffer.getvalue())
