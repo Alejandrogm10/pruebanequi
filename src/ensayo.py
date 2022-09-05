@@ -9,7 +9,7 @@ Created on Sun Sep  4 18:42:25 2022
 import pandas as pd
 import boto3
 import io
-
+from io import StringIO
 # =============================================================================
 # EDA: Exploratory Data Analysis
 # =============================================================================
