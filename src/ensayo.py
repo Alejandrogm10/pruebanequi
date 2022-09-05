@@ -20,3 +20,9 @@ bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
 perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()),sep=',')
+
+
+csv_buffer = StringIO()
+perfiles.to_csv(csv_buffer)
+s3_resource = boto3.resource('s3')
+s3_resource.Object(bucket, 'resultado.csv').put(Body=csv_buffer.getvalue())
