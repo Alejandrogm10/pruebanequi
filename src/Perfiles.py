@@ -21,7 +21,7 @@ obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
 perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()),sep=',')
 
 
-print('archivo perfiles leido')
+print('archivo perfiles leido correctamente')
 
 # =============================================================================
 # 1. Información Básica sobre el DataSet'''
