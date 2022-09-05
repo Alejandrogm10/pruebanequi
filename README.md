@@ -60,12 +60,12 @@ Se utiliza AWS Glue para realizar cruce entre los 3 datasets
 
 ![image](https://user-images.githubusercontent.com/20784371/188362087-a2ef2274-0692-4ba2-8566-d6bdd5843c89.png)
 
-¿Cuál es el objetivo?
+###¿Cuál es el objetivo?
 
 El objetivo del proyecto es integrar información de publicaciones, perfiles y locaciones para identificar relación entre datos relevantes como número de comentarios en la red social,número de seguidores número de publicaciones, comentarios, likes y determinar en que lugares del mundo existe mayor interacción en la red
-¿Qué preguntas quieres hacer?
+###¿Qué preguntas quieres hacer?
 Cuál es la locación que tiene mayor interacción? Cuales son las cuentas que tienen mayor interacción en la red personales o empresariales? Cuál es el nuvel de Concentración de interacción por pais?, Que relación existe entre el número de publicaciones y reacciones como me gusta y comentarios o pueden existir usuarios con pocas publicaciones pero con un tráfico de interacción mayor? 
-¿Por qué eligió el modelo que eligió?
+###¿Por qué eligió el modelo que eligió?
 Permite realizar un análisis con una buena cantidad de variables paraidentificar niveles de interacción, concentraciones de acuerdo a locación y responder a diferentes preguntas
 
 
