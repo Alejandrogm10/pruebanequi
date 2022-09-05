@@ -5,13 +5,21 @@
 
 import pandas as pd
 import seaborn as sb
+import boto3
+import io
 
 # =============================================================================
 # EDA: Exploratory Data Analysis
 # =============================================================================
 
 # Cargar archivo con perfiles de instagram formato csv separado por tabulador
-perfiles = pd.read_csv('https://insumosprueba.s3.amazonaws.com/instagram_profiles.csv',sep='\t')
+s3_file_key = 'instagram_profiles.csv'
+bucket = 'insumosprueba'
+s3 = boto3.client('s3')
+obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
+perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()))
+
+
 print('perfiles cargado')
 
 # =============================================================================
