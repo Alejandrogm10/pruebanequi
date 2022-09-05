@@ -38,7 +38,8 @@ print(posts.info())
 # =============================================================================
 #Valores duplicados en el dataframe
 print('El DataSet tiene {} registros duplicados'.format(posts.duplicated().sum()))
-
+posts = posts.drop_duplicates()
+print('El DataSet tiene {} registros duplicados'.format(posts.duplicated().sum()))
 # =============================================================================
 # 3. Valores Nulos
 # =============================================================================
