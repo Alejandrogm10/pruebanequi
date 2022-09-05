@@ -17,7 +17,7 @@ s3_file_key = 'instagram_profiles.csv'
 bucket = 'insumosprueba'
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key=s3_file_key)
-perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()))
+perfiles = pd.read_csv(io.BytesIO(obj['Body'].read()),sep='\t')
 
 
 print('perfiles cargado')
